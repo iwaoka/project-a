@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("news", ({ data }) => !data.draft);
+  return posts.map((p) => ({
+    params: { slug: p.slug },
+    props: { post: p },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{post.data.title}</title>
+    <meta name="description" content={post.data.description} />
+  </head>
+  <body>
+    <p><a href="/news/">← 一覧へ</a></p>
+    <h1>{post.data.title}</h1>
+    <p>{post.data.date.toLocaleDateString("ja-JP")}</p>
+    <hr />
+    <Content />
+  </body>
+</html>
