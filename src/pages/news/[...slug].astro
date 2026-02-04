@@ -1,15 +1,16 @@
 ---
 import { getCollection } from "astro:content";
+import { resolvePublishedDate } from "../../lib/resolvePublishedDate";
 
 export async function getStaticPaths() {
   const posts = await getCollection("news", ({ data }) => !data.draft);
   return posts.map((p) => ({
     params: { slug: p.slug },
-    props: { post: p },
+    props: { post: p, publishedAt: resolvePublishedDate(p, "src/content/news") },
   }));
 }
 
-const { post } = Astro.props;
+const { post, publishedAt } = Astro.props;
 const { Content } = await post.render();
 ---
 
@@ -23,7 +24,7 @@ const { Content } = await post.render();
   <body>
     <p><a href="/news/">← 一覧へ</a></p>
     <h1>{post.data.title}</h1>
-    <p>{post.data.date.toLocaleDateString("ja-JP")}</p>
+    <p>{publishedAt.toLocaleDateString("ja-JP")}</p>
     <hr />
     <Content />
   </body>
