@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Section from "../../components/ui/Section.astro";
+import Container from "../../components/layout/Container.astro";
+---
+
+<BaseLayout
+  title="About - Jerk Chicken Stand"
+  description="Jerk Chicken Standについて。本格ジャマイカ料理をお届けする私たちのストーリー。"
+>
+  <Section variant="plain" style="padding: var(--space-12) 0; background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%); color: white;">
+    <Container>
+      <h1 style="color: white; margin-bottom: var(--space-3);">About Us</h1>
+      <p style="color: rgba(255, 255, 255, 0.9); margin: 0; font-size: var(--text-lg);">本格ジャマイカ料理をお届けする私たちのストーリー。</p>
+    </Container>
+  </Section>
+
+  <Section variant="plain">
+    <Container>
+      <section style="margin-top: var(--space-12);">
+        <h2>Jerk Chicken Standについて</h2>
+        <p>本格ジャマイカ料理のジャークチキンをお届けする移動販売スタンドです。</p>
+      </section>
+
+      <section style="margin-top: var(--space-12);">
+        <h2>ジャークチキンとは</h2>
+        <p>ジャマイカの伝統的なスパイス調理法で作るグリルチキン。スコッチボネットペッパーやオールスパイスなどを使った香り高い料理です。</p>
+      </section>
+    </Container>
+  </Section>
+</BaseLayout>

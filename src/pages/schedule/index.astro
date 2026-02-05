@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Section from "../../components/ui/Section.astro";
+import Container from "../../components/layout/Container.astro";
+---
+
+<BaseLayout
+  title="Schedule - Jerk Chicken Stand"
+  description="Jerk Chicken Standの出店スケジュール。今週・今月の出店予定をご確認ください。"
+>
+  <Section variant="plain" style="padding: var(--space-12) 0; background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%); color: white;">
+    <Container>
+      <h1 style="color: white; margin-bottom: var(--space-3);">Schedule</h1>
+      <p style="color: rgba(255, 255, 255, 0.9); margin: 0; font-size: var(--text-lg);">今週・今月の出店予定です。天候や諸事情により変更になる場合は<a href="/news/" style="color: var(--accent);">お知らせ</a>でご案内します。</p>
+    </Container>
+  </Section>
+
+  <Section variant="plain">
+    <Container>
+      <section style="margin-top: var(--space-12);">
+        <h2>今週の出店</h2>
+        <ul style="list-style: none; padding: 0;">
+          <li class="card" style="margin-bottom: var(--space-6); padding: var(--space-6);">
+            <h3 style="margin-bottom: var(--space-2);">2月5日（水）</h3>
+            <p><strong>時間：</strong>11:00 - 15:00</p>
+            <p><strong>場所：</strong>渋谷マルイ前広場</p>
+          </li>
+          <li class="card" style="margin-bottom: var(--space-6); padding: var(--space-6);">
+            <h3 style="margin-bottom: var(--space-2);">2月7日（金）</h3>
+            <p><strong>時間：</strong>11:00 - 15:00</p>
+            <p><strong>場所：</strong>新宿中央公園</p>
+          </li>
+          <li class="card" style="margin-bottom: var(--space-6); padding: var(--space-6);">
+            <h3 style="margin-bottom: var(--space-2);">2月8日（土）</h3>
+            <p><strong>時間：</strong>10:00 - 17:00</p>
+            <p><strong>場所：</strong>代々木公園イベント広場</p>
+          </li>
+        </ul>
+      </section>
+
+      <section style="margin-top: var(--space-12);">
+        <h2>今月の予定</h2>
+        <p>毎週水曜・金曜：都内各所（詳細は<a href="/news/">お知らせ</a>をご確認ください）</p>
+        <p>毎週土曜・日曜：代々木公園または青山ファーマーズマーケット</p>
+      </section>
+
+      <section style="margin-top: var(--space-12); padding: var(--space-6); background: var(--accent); color: white; border-radius: var(--radius-lg);">
+        <h3 style="color: white; margin-bottom: var(--space-2);">⚠️ 変更がある場合</h3>
+        <p style="color: white; margin: 0;">天候不良や諸事情により出店が中止・変更になる場合は、前日までに<a href="/news/" style="color: white; text-decoration: underline;">お知らせ</a>およびInstagramでご案内します。</p>
+      </section>
+    </Container>
+  </Section>
+</BaseLayout>

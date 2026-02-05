@@ -1,0 +1,88 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Section from "../../components/ui/Section.astro";
+import Container from "../../components/layout/Container.astro";
+---
+
+<BaseLayout
+  title="Order - Jerk Chicken Stand"
+  description="Jerk Chicken Standの予約・取り置き・大量注文・ケータリングのご案内。お気軽にお問い合わせください。"
+>
+  <Section variant="plain" style="padding: var(--space-12) 0; background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%); color: white;">
+    <Container>
+      <h1 style="color: white; margin-bottom: var(--space-3);">予約・取り置き・ケータリング</h1>
+      <p style="color: rgba(255, 255, 255, 0.9); margin: 0; font-size: var(--text-lg);">事前予約・取り置き・大量注文・ケータリングを承っています。</p>
+    </Container>
+  </Section>
+
+  <Section variant="plain">
+    <Container>
+      <section style="margin-top: var(--space-12);">
+        <h2>事前予約・取り置き</h2>
+        <p>確実にお召し上がりたい方、待ち時間を短縮したい方におすすめです。</p>
+        <div class="card" style="padding: var(--space-6);">
+          <ul>
+            <li>受取希望日の<strong>前日18:00まで</strong>にご連絡ください</li>
+            <li>最低注文数：1個から</li>
+            <li>お支払い：受取時</li>
+          </ul>
+        </div>
+
+        <h3 style="margin-top: var(--space-6);">ご予約方法</h3>
+        <div class="card" style="padding: var(--space-6);">
+          <ul>
+            <li>Instagram DM（推奨）</li>
+            <li>お問い合わせフォーム（<a href="/contact/">こちら</a>）</li>
+          </ul>
+          <p class="muted" style="margin: var(--space-4) 0 0 0;">※ご連絡の際は、希望日時・商品・個数をお知らせください。</p>
+        </div>
+      </section>
+
+      <section style="margin-top: var(--space-12);">
+        <h2>大量注文（10食以上）</h2>
+        <p>会社のランチ、イベント、パーティーなど、10食以上のご注文も承ります。</p>
+        <div class="card" style="padding: var(--space-6);">
+          <ul>
+            <li>受取希望日の<strong>3日前まで</strong>にご連絡ください</li>
+            <li>20食以上のご注文で割引あり</li>
+            <li>お支払い：要相談（事前振込または受取時）</li>
+          </ul>
+        </div>
+
+        <h3 style="margin-top: var(--space-6);">ご注文の流れ</h3>
+        <ol style="padding-left: 1.5rem;">
+          <li>お問い合わせ（<a href="/contact/">こちら</a>）</li>
+          <li>内容・お見積りのご確認</li>
+          <li>ご注文確定</li>
+          <li>当日お受け取り</li>
+        </ol>
+      </section>
+
+      <section style="margin-top: var(--space-12);">
+        <h2>ケータリング</h2>
+        <p>イベント、お祭り、企業パーティーなどへの出張販売も承ります。</p>
+        <div class="card" style="padding: var(--space-6);">
+          <ul>
+            <li>開催日の<strong>2週間前まで</strong>にご連絡ください</li>
+            <li>都内近郊（応相談）</li>
+            <li>最低発注数：50食から</li>
+            <li>出張費用：別途お見積り</li>
+          </ul>
+        </div>
+
+        <h3 style="margin-top: var(--space-6);">ご相談・お問い合わせ</h3>
+        <p><a href="/contact/">お問い合わせページ</a>よりご連絡ください。詳細をヒアリングの上、お見積りをご提示いたします。</p>
+      </section>
+    </Container>
+  </Section>
+
+  <Section variant="brand" style="text-align: center;">
+    <Container>
+      <h3 style="color: white; margin-bottom: var(--space-4);">💡 まずはお気軽にご相談ください</h3>
+      <p style="color: rgba(255, 255, 255, 0.95); margin-bottom: var(--space-6);">ご不明な点やご要望がありましたら、<a href="/contact/" style="color: var(--accent);">お問い合わせ</a>またはInstagram DMでお気軽にご連絡ください。</p>
+      <a href="/contact/" class="btn btn-secondary">
+        お問い合わせする
+      </a>
+    </Container>
+  </Section>
+</BaseLayout>

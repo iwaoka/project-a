@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Section from "../../components/ui/Section.astro";
+import Container from "../../components/layout/Container.astro";
+---
+
+<BaseLayout
+  title="Access - Jerk Chicken Stand"
+  description="Jerk Chicken Standの店舗情報・アクセス・支払い方法のご案内。移動販売のため、スケジュールをご確認ください。"
+>
+  <Section variant="plain" style="padding: var(--space-12) 0; background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%); color: white;">
+    <Container>
+      <h1 style="color: white; margin-bottom: var(--space-3);">Access</h1>
+      <p style="color: rgba(255, 255, 255, 0.9); margin: 0; font-size: var(--text-lg);">移動販売スタイルで営業しています。出店場所は<a href="/schedule/" style="color: var(--accent);">スケジュール</a>をご確認ください。</p>
+    </Container>
+  </Section>
+
+  <Section variant="plain">
+    <Container>
+      <section style="margin-top: var(--space-12);">
+        <h2>主な出店エリア</h2>
+        <ul>
+          <li><strong>渋谷エリア：</strong>渋谷マルイ前広場、渋谷ヒカリエ周辺</li>
+          <li><strong>新宿エリア：</strong>新宿中央公園、新宿駅南口広場</li>
+          <li><strong>代々木公園：</strong>イベント広場（土日祝）</li>
+          <li><strong>青山：</strong>青山ファーマーズマーケット（土日）</li>
+        </ul>
+
+        <p style="margin-top: var(--space-6);">
+          <a href="https://www.google.com/maps/search/代々木公園+イベント広場" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            📍 代々木公園をGoogleマップで見る
+          </a>
+        </p>
+      </section>
+
+      <section style="margin-top: var(--space-12);">
+        <h2>お支払い方法</h2>
+        <div class="card" style="padding: var(--space-6);">
+          <ul>
+            <li>現金</li>
+            <li>PayPay</li>
+            <li>各種交通系IC（Suica、PASMOなど）</li>
+            <li>クレジットカード（Visa、Mastercard）</li>
+          </ul>
+        </div>
+      </section>
+
+      <section style="margin-top: var(--space-12);">
+        <h2>営業時間</h2>
+        <div class="card" style="padding: var(--space-6);">
+          <ul>
+            <li>平日（出店日のみ）：11:00 - 15:00</li>
+            <li>土日祝：10:00 - 17:00（売り切れ次第終了）</li>
+          </ul>
+          <p class="muted" style="margin: var(--space-4) 0 0 0;">※詳細は<a href="/schedule/">スケジュール</a>をご確認ください。</p>
+        </div>
+      </section>
+
+      <section style="margin-top: var(--space-12);">
+        <h2>駐車場・駐輪場</h2>
+        <p>移動販売のため、専用駐車場・駐輪場はございません。各出店場所の近隣駐車場・駐輪場をご利用ください。公共交通機関でのご来店をお勧めします。</p>
+      </section>
+    </Container>
+  </Section>
+</BaseLayout>

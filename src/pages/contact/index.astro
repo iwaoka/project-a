@@ -1,0 +1,66 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Section from "../../components/ui/Section.astro";
+import Container from "../../components/layout/Container.astro";
+---
+
+<BaseLayout
+  title="Contact - Jerk Chicken Stand"
+  description="Jerk Chicken Standへのお問い合わせ。ご予約・ケータリング・その他ご質問はこちらから。"
+>
+  <Section variant="plain" style="padding: var(--space-12) 0; background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%); color: white;">
+    <Container>
+      <h1 style="color: white; margin-bottom: var(--space-3);">Contact</h1>
+      <p style="color: rgba(255, 255, 255, 0.9); margin: 0; font-size: var(--text-lg);">ご予約、ケータリング、その他お問い合わせはお気軽に。</p>
+    </Container>
+  </Section>
+
+  <Section variant="plain">
+    <Container>
+      <section style="margin-top: var(--space-12);">
+        <h2>お問い合わせ方法</h2>
+        
+        <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-6);">
+          <h3 style="margin-bottom: var(--space-2);">📱 Instagram（推奨）</h3>
+          <p>最も早くご返信できます。DMでお気軽にどうぞ。</p>
+          <p><a href="https://www.instagram.com/jerkchickenstand" target="_blank" rel="noopener noreferrer" class="btn btn-primary">@jerkchickenstand</a></p>
+        </div>
+
+        <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-6);">
+          <h3 style="margin-bottom: var(--space-2);">✉️ メール</h3>
+          <p>info@jerkchickenstand.example</p>
+          <p class="muted" style="margin: 0;">※営業時間内に順次ご返信します（24時間以内）</p>
+        </div>
+
+        <div class="card" style="padding: var(--space-6);">
+          <h3 style="margin-bottom: var(--space-2);">📞 電話</h3>
+          <p>090-XXXX-XXXX</p>
+          <p class="muted" style="margin: 0;">※出店時間中は電話に出られないことがあります。留守電にメッセージをお残しください。</p>
+        </div>
+      </section>
+
+      <section style="margin-top: var(--space-12);">
+        <h2>営業時間</h2>
+        <div class="card" style="padding: var(--space-6);">
+          <p>お問い合わせ対応時間：9:00 - 18:00（出店日以外）</p>
+          <p class="muted" style="margin: 0;">※出店日は調理・接客中のため、返信が遅れることがあります。</p>
+        </div>
+      </section>
+
+      <section style="margin-top: var(--space-12);">
+        <h2>よくあるお問い合わせ</h2>
+        <ul>
+          <li><strong>予約したい：</strong><a href="/order/">予約・取り置きページ</a>をご覧ください</li>
+          <li><strong>スケジュールを知りたい：</strong><a href="/schedule/">スケジュールページ</a>をご覧ください</li>
+          <li><strong>メニューを見たい：</strong><a href="/menu/">メニューページ</a>をご覧ください</li>
+          <li><strong>ケータリング依頼：</strong><a href="/order/">予約・取り置きページ</a>の「ケータリング」をご覧ください</li>
+        </ul>
+      </section>
+
+      <section style="margin-top: var(--space-12); padding: var(--space-6); background: var(--brand-light); border-radius: var(--radius-lg);">
+        <h3>📝 お問い合わせフォーム（準備中）</h3>
+        <p>現在、お問い合わせフォームを準備中です。お急ぎの方は Instagram DM またはメールでご連絡ください。</p>
+      </section>
+    </Container>
+  </Section>
+</BaseLayout>

@@ -1,0 +1,95 @@
+---
+const { tiles } = Astro.props;
+---
+
+<div class="nav-tiles-grid">
+  {tiles.map((tile) => (
+    <a href={tile.href} class="nav-tile">
+      <div class="nav-tile-inner">
+        <div class="nav-tile-icon">
+          {tile.icon}
+        </div>
+        <h3 class="nav-tile-label">
+          {tile.label}
+        </h3>
+        {tile.description && (
+          <p class="nav-tile-description">
+            {tile.description}
+          </p>
+        )}
+      </div>
+    </a>
+  ))}
+</div>
+
+<style>
+  .nav-tiles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .nav-tile {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+  }
+
+  .nav-tile-inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-8);
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .nav-tile:hover .nav-tile-inner {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .nav-tile-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-4);
+    display: block;
+  }
+
+  .nav-tile-label {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    margin: 0 0 var(--space-2) 0;
+    color: var(--text);
+  }
+
+  .nav-tile-description {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .nav-tiles-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+    }
+
+    .nav-tile-inner {
+      padding: var(--space-4);
+    }
+
+    .nav-tile-icon {
+      font-size: 2.5rem;
+    }
+
+    .nav-tile-label {
+      font-size: var(--text-base);
+    }
+  }
+</style>

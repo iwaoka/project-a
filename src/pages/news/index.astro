@@ -1,6 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 import { resolvePublishedDate } from "../../lib/resolvePublishedDate";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Section from "../../components/ui/Section.astro";
+import Container from "../../components/layout/Container.astro";
 
 const raw = await getCollection("news", ({ data }) => !data.draft);
 
@@ -12,28 +15,43 @@ const posts = raw
   .sort((a, b) => {
     const diff = b.publishedAt.getTime() - a.publishedAt.getTime();
     if (diff !== 0) return diff;
-    return b.slug.localeCompare(a.slug); // 同日時の安定化
+    return b.slug.localeCompare(a.slug);
   });
 ---
 
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>お知らせ</title>
-  </head>
-  <body>
-    <h1>お知らせ</h1>
+<BaseLayout title="お知らせ - Jerk Chicken Stand" description="Jerk Chicken Stand のお知らせ一覧。出店情報や臨時休業などをお知らせします。">
+  <Section variant="plain" style="padding: var(--space-12) 0; background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%); color: white;">
+    <Container>
+      <h1 style="color: white; margin-bottom: var(--space-3);">お知らせ</h1>
+      <p style="color: rgba(255, 255, 255, 0.9); margin: 0; font-size: var(--text-lg);">出店情報や臨時休業などの最新情報をお届けします。</p>
+    </Container>
+  </Section>
 
-    <ul>
-      {posts.map((p) => (
-        <li>
-          <a href={`/news/${p.slug}/`}>{p.data.title}</a>
-          <div style="font-size: 0.9em; color: #666; margin-top: 0.25em;">
-            {p.publishedAt.toLocaleDateString("ja-JP")}
-          </div>
-        </li>
-      ))}
-    </ul>
-  </body>
-</html>
+  <Section variant="plain">
+    <Container>
+      {posts.length > 0 ? (
+        <ul style="list-style: none; padding: 0;">
+          {posts.map((p) => (
+            <li style="margin-bottom: var(--space-6);">
+              <a href={`/news/${p.slug}/`} style="text-decoration: none; color: inherit; display: block;">
+                <div class="card" style="padding: var(--space-6);">
+                  <div class="muted" style="margin-bottom: var(--space-2);">
+                    {p.publishedAt.toLocaleDateString("ja-JP")}
+                  </div>
+                  <h3 style="margin-bottom: var(--space-3); color: var(--text);">
+                    {p.data.title}
+                  </h3>
+                  <p style="margin: 0; color: var(--text-secondary);">
+                    {p.data.description}
+                  </p>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p style="text-align: center; color: var(--muted);">お知らせはまだありません。</p>
+      )}
+    </Container>
+  </Section>
+</BaseLayout>

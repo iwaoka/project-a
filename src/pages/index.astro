@@ -1,17 +1,141 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Section from "../components/ui/Section.astro";
+import Hero from "../components/home/Hero.astro";
+import NavTiles from "../components/home/NavTiles.astro";
+import FeaturedMenu from "../components/home/FeaturedMenu.astro";
+import LatestNews from "../components/home/LatestNews.astro";
+import FAQTeaser from "../components/home/FAQTeaser.astro";
+import Container from "../components/layout/Container.astro";
+import { getCollection } from "astro:content";
+import { resolvePublishedDate } from "../lib/resolvePublishedDate";
 
+// 最新3件のお知らせを取得
+const raw = await getCollection("news", ({ data }) => !data.draft);
+const latestNews = raw
+  .map((p) => ({
+    ...p,
+    publishedAt: resolvePublishedDate(p, "src/content/news"),
+  }))
+  .sort((a, b) => {
+    const diff = b.publishedAt.getTime() - a.publishedAt.getTime();
+    if (diff !== 0) return diff;
+    return b.slug.localeCompare(a.slug);
+  })
+  .slice(0, 3);
+
+const navTiles = [
+  { icon: "🍗", label: "Menu", href: "/menu/", description: "全メニューを見る" },
+  { icon: "📅", label: "Schedule", href: "/schedule/", description: "出店スケジュール" },
+  { icon: "📍", label: "Access", href: "/access/", description: "店舗情報" },
+  { icon: "🛒", label: "Order", href: "/order/", description: "予約・取り置き" },
+  { icon: "📰", label: "News", href: "/news/", description: "お知らせ" },
+  { icon: "❓", label: "FAQ", href: "/faq/", description: "よくある質問" },
+];
+
+const menuItems = [
+  {
+    name: "ジャークチキン（1/2）",
+    description: "チキン半身 + ライス&ピーズ + サラダ",
+    price: "1,200",
+    spice: "マイルド/ホット",
+  },
+  {
+    name: "ジャークチキン（1枚）",
+    description: "チキン1枚 + ライス&ピーズ + サラダ",
+    price: "2,000",
+    spice: "スパイシー",
+  },
+  {
+    name: "ライス&ピーズ単品",
+    description: "ココナッツライスと豆のジャマイカ風",
+    price: "400",
+    spice: "お子様向け",
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="Jerk Chicken Stand - 炭火香る、本気のジャークチキン。"
+  description="本格ジャマイカ料理のジャークチキン専門の移動販売。スパイシーで香り高いチキンとライス&ピーズ。都内各所に出店中。予約・ケータリングも対応します。"
+>
+  <!-- Hero Section -->
+  <Section variant="plain" style="padding: var(--space-20) 0; background: linear-gradient(135deg, rgba(220, 38, 38, 0.85) 0%, rgba(153, 27, 27, 0.85) 100%), url('/assets/images/common/hero.webp'); background-size: cover; background-position: center;">
+    <Container>
+      <Hero
+        title="炭火香る、本気のジャークチキン。"
+        subtitle="スパイシーで香り高い、本格ジャマイカ料理を都内各所で提供中"
+        description="出店・予約・ケータリング。好きな場所で、好きな時に。"
+        image="/assets/images/common/hero.webp"
+        badges={["移動販売", "本格ジャマイカ料理"]}
+        primaryCta={{ label: "出店を見る", href: "/schedule/" }}
+        secondaryCta={{ label: "今すぐ予約", href: "/order/" }}
+        nextEvent="2月5日（水） 渋谷マルイ前広場 11:00-15:00"
+      />
+    </Container>
+  </Section>
+
+  <!-- Navigation Tiles Section -->
+  <Section variant="alternate" style="padding: var(--space-16) 0;">
+    <Container>
+      <h2 style="text-align: center; margin-bottom: var(--space-12);">メニュー・情報</h2>
+      <NavTiles tiles={navTiles} />
+    </Container>
+  </Section>
+
+  <!-- Featured Menu Section -->
+  <Section variant="plain" style="padding: var(--space-16) 0;">
+    <Container>
+      <h2 style="text-align: center; margin-bottom: var(--space-12);">人気メニュー</h2>
+      <FeaturedMenu items={menuItems} />
+    </Container>
+  </Section>
+
+  <!-- Brand Message Section -->
+  <Section variant="brand" style="padding: var(--space-16) 0; text-align: center;">
+    <Container>
+      <h2 style="color: white; margin-bottom: var(--space-6);">イベント・大量注文も対応</h2>
+      <p style="color: rgba(255, 255, 255, 0.95); max-width: 600px; margin: 0 auto var(--space-8); font-size: var(--text-lg);">
+        会社のランチ、パーティー、イベント出店…大量注文・ケータリングはお気軽にご相談ください。
+      </p>
+      <a href="/order/" class="btn btn-secondary">
+        詳しく見る →
+      </a>
+    </Container>
+  </Section>
+
+  <!-- Latest News Section -->
+  <Section variant="plain" style="padding: var(--space-16) 0;">
+    <Container>
+      <h2 style="text-align: center; margin-bottom: var(--space-12);">最新情報</h2>
+      {latestNews.length > 0 ? (
+        <LatestNews posts={latestNews} />
+      ) : (
+        <p style="text-align: center; color: var(--muted);">お知らせはまだありません。</p>
+      )}
+      <p style="text-align: center; margin-top: var(--space-8);">
+        <a href="/news/" class="btn btn-outline">
+          全てのお知らせを見る →
+        </a>
+      </p>
+    </Container>
+  </Section>
+
+  <!-- FAQ Teaser Section -->
+  <Section variant="alternate" style="padding: var(--space-16) 0;">
+    <Container>
+      <FAQTeaser />
+    </Container>
+  </Section>
+</BaseLayout>
+
+<style>
+  :global(.site-section.brand) {
+    background: var(--brand);
+    color: white;
+  }
+
+  :global(.site-section.alternate) {
+    background: var(--surface);
+  }
+</style>

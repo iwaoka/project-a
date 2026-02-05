@@ -1,0 +1,30 @@
+---
+const { items } = Astro.props;
+---
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8);">
+  {items.map((item) => (
+    <div class="card">
+      <img 
+        src={item.image || "/assets/images/common/hero.webp"} 
+        alt={item.name}
+        class="card-image"
+        style="height: 200px;"
+      />
+      <h3 style="margin-bottom: var(--space-2);">{item.name}</h3>
+      <p style="margin: 0 0 var(--space-4); color: var(--text-secondary); font-size: var(--text-sm);">
+        {item.description}
+      </p>
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-size: var(--text-xl); font-weight: 700; color: var(--brand);">
+          ¥{item.price}
+        </span>
+        {item.spice && (
+          <span style="background: var(--accent-light, #fef3c7); color: var(--accent-dark); padding: var(--space-2) var(--space-3); border-radius: var(--radius); font-size: var(--text-xs); font-weight: 600;">
+            {item.spice}
+          </span>
+        )}
+      </div>
+    </div>
+  ))}
+</div>

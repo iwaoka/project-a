@@ -1,0 +1,10 @@
+---
+const { variant = "plain", class: className = "", ...rest } = Astro.props;
+const classes = `site-section ${variant} ${className}`.trim();
+---
+
+<section class={classes} {...rest}>
+  <div class="container">
+    <slot />
+  </div>
+</section>

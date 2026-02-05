@@ -11,8 +11,8 @@ export async function GET(context) {
     .sort((a, b) => b.publishedAt.getTime() - a.publishedAt.getTime());
 
   return rss({
-    title: 'お知らせ',
-    description: 'プロジェクトAのお知らせ',
+    title: 'お知らせ - Jerk Chicken Stand',
+    description: 'Jerk Chicken Standのお知らせフィード',
     site: context.site,
     items: posts.map((post) => ({
       title: post.data.title,

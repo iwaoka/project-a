@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Section from "../../components/ui/Section.astro";
+import Container from "../../components/layout/Container.astro";
+---
+
+<BaseLayout
+  title="FAQ - Jerk Chicken Stand"
+  description="Jerk Chicken Standのよくある質問。ご不明な点はこちらをご確認ください。"
+>
+  <Section variant="plain" style="padding: var(--space-12) 0; background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%); color: white;">
+    <Container>
+      <h1 style="color: white; margin-bottom: var(--space-3);">FAQ</h1>
+      <p style="color: rgba(255, 255, 255, 0.9); margin: 0; font-size: var(--text-lg);">よくあるご質問にお答えします。</p>
+    </Container>
+  </Section>
+
+  <Section variant="plain">
+    <Container>
+      <div style="max-width: 800px; margin: 0 auto;">
+        <section style="margin-top: var(--space-12);">
+          <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-6);">
+            <h3 style="margin-bottom: var(--space-2);">Q. 予約は必要ですか？</h3>
+            <p style="margin: 0;">A. 予約なしでもご購入いただけますが、確実にお召し上がりたい方は<a href="/order/">事前予約</a>をおすすめします。</p>
+          </div>
+
+          <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-6);">
+            <h3 style="margin-bottom: var(--space-2);">Q. 辛さは調整できますか？</h3>
+            <p style="margin: 0;">A. はい、マイルドとホットからお選びいただけます。</p>
+          </div>
+
+          <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-6);">
+            <h3 style="margin-bottom: var(--space-2);">Q. アレルギー対応はできますか？</h3>
+            <p style="margin: 0;">A. 詳しくは<a href="/contact/">お問い合わせ</a>ください。</p>
+          </div>
+
+          <div class="card" style="padding: var(--space-6);">
+            <h3 style="margin-bottom: var(--space-2);">Q. 大量注文を考えているのですが？</h3>
+            <p style="margin: 0;">A. ケータリングや大量注文も承っています。<a href="/order/">こちら</a>から詳しい情報をご覧ください。</p>
+          </div>
+        </section>
+
+        <section style="margin-top: var(--space-12); text-align: center;">
+          <h3>ご不明な点がありましたら</h3>
+          <p><a href="/contact/">お問い合わせページ</a>からお気軽にご連絡ください。</p>
+        </section>
+      </div>
+    </Container>
+  </Section>
+</BaseLayout>

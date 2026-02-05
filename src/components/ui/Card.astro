@@ -1,0 +1,20 @@
+---
+const { href = "#", title, description, image } = Astro.props;
+---
+
+<a href={href} style="text-decoration: none; color: inherit; display: block;">
+  <div class="card">
+    {image && (
+      <img src={image} alt={title} class="card-image" />
+    )}
+    {!image && (
+      <div class="card-image" style="display: flex; align-items: center; justify-content: center; color: var(--muted);">
+        📷
+      </div>
+    )}
+    <h3 style="margin-bottom: var(--space-2);">{title}</h3>
+    {description && (
+      <p style="margin: 0; color: var(--text-secondary); font-size: var(--text-sm);">{description}</p>
+    )}
+  </div>
+</a>

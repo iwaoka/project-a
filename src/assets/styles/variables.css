@@ -1,0 +1,54 @@
+:root {
+  /* Brand & Color */
+  --brand: #dc2626;
+  --brand-dark: #991b1b;
+  --brand-light: #fee2e2;
+  --accent: #f59e0b;
+  --accent-dark: #d97706;
+  --success: #10b981;
+
+  /* Backgrounds & Surfaces */
+  --bg: #ffffff;
+  --surface: #f9fafb;
+  --surface-2: #f3f4f6;
+
+  /* Text */
+  --text: #111827;
+  --text-secondary: #374151;
+  --muted: #6b7280;
+  --muted-light: #9ca3af;
+  --border: #e5e7eb;
+
+  /* Spacing (refined for KFC style) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+
+  /* Typography */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+
+  /* Layout */
+  --max-width: 1200px;
+  --radius: 8px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Font */
+  --font-sans: "Noto Sans JP", system-ui, -apple-system, "Segoe UI", sans-serif;
+}

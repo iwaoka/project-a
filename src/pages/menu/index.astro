@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Section from "../../components/ui/Section.astro";
+import Container from "../../components/layout/Container.astro";
+---
+
+<BaseLayout
+  title="Menu - Jerk Chicken Stand"
+  description="本格ジャマイカ料理のジャークチキン。スパイシーで香り高いチキンとライス&ピーズをお楽しみください。"
+>
+  <Section variant="plain" style="padding: var(--space-12) 0; background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%); color: white;">
+    <Container>
+      <h1 style="color: white; margin-bottom: var(--space-3);">Menu</h1>
+      <p style="color: rgba(255, 255, 255, 0.9); margin: 0; font-size: var(--text-lg);">本格ジャマイカ料理のジャークチキンをご提供しています。</p>
+    </Container>
+  </Section>
+
+  <Section variant="plain">
+    <Container>
+      <section style="margin-top: var(--space-12);">
+        <h2>Main Dishes</h2>
+        <ul style="list-style: none; padding: 0;">
+          <li class="card" style="margin-bottom: var(--space-6); padding: var(--space-6);">
+            <h3 style="margin-bottom: var(--space-2);">ジャークチキン（1/2）</h3>
+            <p>チキン半身 + ライス&ピーズ + サラダ</p>
+            <p><strong style="font-size: var(--text-2xl); color: var(--brand);">¥1,200</strong></p>
+          </li>
+          <li class="card" style="margin-bottom: var(--space-6); padding: var(--space-6);">
+            <h3 style="margin-bottom: var(--space-2);">ジャークチキン（1枚）</h3>
+            <p>チキン1枚 + ライス&ピーズ + サラダ</p>
+            <p><strong style="font-size: var(--text-2xl); color: var(--brand);">¥2,000</strong></p>
+          </li>
+          <li class="card" style="margin-bottom: var(--space-6); padding: var(--space-6);">
+            <h3 style="margin-bottom: var(--space-2);">ライス&ピーズ単品</h3>
+            <p>ココナッツライスと豆のジャマイカ風ライス</p>
+            <p><strong style="font-size: var(--text-2xl); color: var(--brand);">¥400</strong></p>
+          </li>
+        </ul>
+      </section>
+
+      <section style="margin-top: var(--space-12);">
+        <h2>Options</h2>
+        <ul>
+          <li><strong>辛さ調整：</strong>マイルド / ホット（無料）</li>
+          <li><strong>追加ソース：</strong>スコッチボネットソース（+¥100）</li>
+          <li><strong>トッピング：</strong>グリル野菜（+¥200）</li>
+        </ul>
+      </section>
+
+      <section style="margin-top: var(--space-12);">
+        <h2>Drinks</h2>
+        <ul>
+          <li>ソフトドリンク（各種）：¥200</li>
+          <li>ジンジャービア：¥300</li>
+          <li>ビール（缶）：¥500</li>
+        </ul>
+      </section>
+
+      <section style="margin-top: var(--space-12); padding: var(--space-6); background: var(--brand-light); border-radius: var(--radius-lg);">
+        <h3>大量注文・ケータリング</h3>
+        <p>パーティーやイベントの大量注文・ケータリングも承ります。詳しくは<a href="/order/">予約・取り置きページ</a>をご覧ください。</p>
+      </section>
+    </Container>
+  </Section>
+</BaseLayout>
